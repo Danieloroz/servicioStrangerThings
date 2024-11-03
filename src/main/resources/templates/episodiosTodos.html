@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Todos los episodios</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .item img {
+            max-width: 400px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .label {
+            font-weight: bold;
+        }
+        .stars {
+            display: inline-block;
+            cursor: pointer;
+        }
+        .star {
+            font-size: 24px;
+            color: gray;
+        }
+        .star.hover,
+        .star.selected {
+            color: gold;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff0000;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        header, footer {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<!-- Calificar por estrellas -->
+<script>
+    function highlightStars(event, star) {
+        const stars = star.parentElement.querySelectorAll('.star');
+        const index = Array.from(stars).indexOf(star);
+        stars.forEach((s, i) => {
+            s.classList.toggle('hover', i <= index);
+        });
+    }
+
+    function setRating(event, starsContainer) {
+        const stars = starsContainer.querySelectorAll('.star');
+        stars.forEach(star => star.classList.remove('hover'));
+        const selectedStarIndex = Array.from(stars).indexOf(event.target);
+        stars.forEach((s, i) => {
+            s.classList.toggle('selected', i <= selectedStarIndex);
+        });
+    }
+
+    document.addEventListener('mouseleave', function(event) {
+        const starContainers = document.querySelectorAll('.stars');
+        starContainers.forEach(container => {
+            const stars = container.querySelectorAll('.star');
+            stars.forEach(star => star.classList.remove('hover'));
+        });
+    });
+</script>
+
+<div class="container">
+    <header>
+        <h1>Stranger Things</h1>
+        <p>Temporadas registradas: 2</p>
+        <p>Episodios registrados: 17</p>
+    </header>
+
+    <h2>Episodios de Stranger Things</h2>
+    <div th:each="episodio : ${episodios}">
+        <div class="item">
+            <p><span class="label">Código:</span> <span th:text="${episodio.codigo}">Código</span></p>
+            <p><span class="label">Nombre:</span> <span th:text="${episodio.nombre}">Nombre</span></p>
+            <p><span class="label">Descripción:</span> <span th:text="${episodio.descripcion}">Descripción</span></p>
+            <p><span class="label">Calificación:</span>
+                <span class="stars" onclick="setRating(event, this)">
+                    <span class="star" onmouseover="highlightStars(event, this)">★</span>
+                    <span class="star" onmouseover="highlightStars(event, this)">★</span>
+                    <span class="star" onmouseover="highlightStars(event, this)">★</span>
+                    <span class="star" onmouseover="highlightStars(event, this)">★</span>
+                    <span class="star" onmouseover="highlightStars(event, this)">★</span>
+                </span>
+            </p>
+            <p><span class="label">Temporada:</span> <span th:text="${episodio.temporada.numeroTemporada}">Temporada</span></p>
+            <img th:src="${episodio.firstImage}" alt="Imagen 1 del episodio" />
+            <img th:src="${episodio.secondImage}" alt="Imagen 2 del episodio" />
+        </div>
+    </div>
+    <!-- Botón para volver a la sección de episodios -->
+    <div class="button-container">
+        <a href="/html/episodios.html" class="button">Volver</a>
+    </div>
+    <footer>
+        <p>Creado por Daniel Orozco</p>
+        <p>Fecha de creación: 02/11/24</p>
+        <p>Utilización de Spring Boot para desarrollar aplicaciones web con un API basado en la serie Stranger Things.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>

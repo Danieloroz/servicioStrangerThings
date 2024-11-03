@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protagonistas - Stranger Things</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            height: auto;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            max-width: 900px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            flex: 1 1 200px;
+        }
+        .item {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .label {
+            font-weight: bold;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff0000;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        header, footer {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Stranger Things</h1>
+        <p>Temporadas registradas: 2</p>
+        <p>Episodios registrados: 17</p>
+    </header>
+
+    <h2>Actores Protagonistas de Stranger Things</h2>
+    <div th:each="protagonista : ${protagonistas}">
+        <div class="item">
+            <p><span class="label">Protagonista:</span> <span th:text="${protagonista.actor.nombre}">Protagonista</span></p>
+            <p><span class="label">Temporada:</span> <span th:text="${protagonista.temporada.numeroTemporada}">Temporada</span></p>
+        </div>
+    </div>
+
+    <!-- Botón para volver al menú -->
+    <div class="button-container">
+        <a href="/" class="button">Menú</a>
+    </div>
+
+    <footer>
+        <p>Creado por Daniel Orozco</p>
+        <p>Fecha de creación: 02/11/24</p>
+        <p>Utilización de Spring Boot para desarrollar aplicaciones web con un API basado en la serie Stranger Things.</p>
+    </footer>
+</div>
+</body>
+</html>

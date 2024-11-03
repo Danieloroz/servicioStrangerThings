@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Detalles del Episodio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .container img {
+            max-width: 400px;
+            max-height: 300px;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff0000;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        header, footer {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>Stranger Things</h1>
+        <p>Temporadas registradas: 2</p>
+        <p>Episodios registrados: 17</p>
+    </header>
+
+    <h1>Título del episodio:</h1>
+    <h2 th:text="${episodio.nombre}">Título del Episodio</h2>
+    <p><strong>Descripción:</strong> <span th:text="${episodio.descripcion}">Descripción</span></p>
+    <p><strong>Calificación:</strong> <span th:text="${episodio.calificacion}">Calificación</span></p>
+    <p><strong>Código:</strong> <span th:text="${episodio.codigo}">Código</span></p>
+    <p><strong>Temporada:</strong> <span th:text="${episodio.temporada.numeroTemporada}">Temporada</span></p>
+    <img th:src="${episodio.firstImage}" alt="Imagen 1 del episodio" />
+    <img th:src="${episodio.secondImage}" alt="Imagen 2 del episodio" />
+    <!-- Botón para volver a la sección de episodios -->
+    <div class="button-container">
+        <a href="/html/episodios.html" class="button">Volver</a>
+    </div>
+
+    <footer>
+        <p>Creado por Daniel Orozco</p>
+        <p>Fecha de creación: 02/11/24</p>
+        <p>Utilización de Spring Boot para desarrollar aplicaciones web con un API basado en la serie Stranger Things.</p>
+    </footer>
+</div>
+</body>
+</html>

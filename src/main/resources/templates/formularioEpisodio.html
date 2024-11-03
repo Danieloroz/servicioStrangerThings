@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Agregar Episodio</title>
+</head>
+<body>
+<!-- Formulario para agregar un nuevo episodio -->
+<h2>Agregar Nuevo Episodio</h2>
+<form th:action="@{/st/episodios/guardar}" th:object="${episodio}" method="post">
+
+    <label for="temporada">Temporada:</label>
+    <input type="number" id="temporada" th:field="*{temporada}" min="1" required><br>
+
+    <label for="codigo">Código:</label>
+    <input type="text" id="codigo" th:field="*{codigo}" required><br>
+
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" th:field="*{nombre}" required><br>
+
+    <label for="descripcion">Descripción:</label>
+    <textarea id="descripcion" th:field="*{descripcion}" required></textarea><br>
+
+    <label for="firstImage">Link de 1era imagen:</label>
+    <input type="text" id="firstImage" th:field="*{firstImage}" required><br>
+
+    <label for="secondImage">Link de 2da imagen:</label>
+    <input type="text" id="secondImage" th:field="*{secondImage}" required><br>
+
+    <label for="calificacion">Calificación:</label>
+    <input type="text" id="calificacion" th:field="*{calificacion}" required placeholder="Bueno-Regular-Malo"><br>
+
+    <!-- Botón para enviar formulario -->
+    <button type="submit">Guardar</button>
+</form>
+</body>
+</html>

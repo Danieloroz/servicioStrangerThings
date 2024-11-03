@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Episodios - Stranger Things API</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            height: auto;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin: 10px;
+            flex: 1 1 200px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin: 0 auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff0000;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        h2 {
+            margin-bottom: 15px;
+        }
+        header, footer {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Stranger Things</h1>
+        <p>Temporadas registradas: 2</p>
+        <p>Episodios registrados: 17</p>
+    </header>
+    <!-- Botones para ir a los episodios -->
+    <h2>Episodios Temporada 1</h2>
+    <div class="button-container">
+        <a href="/st/episodios/1" class="button">Episodio 1</a>
+        <a href="/st/episodios/2" class="button">Episodio 2</a>
+        <a href="/st/episodios/3" class="button">Episodio 3</a>
+        <a href="/st/episodios/4" class="button">Episodio 4</a>
+        <a href="/st/episodios/5" class="button">Episodio 5</a>
+        <a href="/st/episodios/6" class="button">Episodio 6</a>
+        <a href="/st/episodios/7" class="button">Episodio 7</a>
+        <a href="/st/episodios/8" class="button">Episodio 8</a>
+    </div>
+
+    <!-- Botones para ir a los episodios -->
+    <h2>Episodios Temporada 2</h2>
+    <div class="button-container">
+        <a href="/st/episodios/9" class="button">Episodio 1</a>
+        <a href="/st/episodios/10" class="button">Episodio 2</a>
+        <a href="/st/episodios/11" class="button">Episodio 3</a>
+        <a href="/st/episodios/12" class="button">Episodio 4</a>
+        <a href="/st/episodios/13" class="button">Episodio 5</a>
+        <a href="/st/episodios/14" class="button">Episodio 6</a>
+        <a href="/st/episodios/15" class="button">Episodio 7</a>
+        <a href="/st/episodios/16" class="button">Episodio 8</a>
+        <a href="/st/episodios/17" class="button">Episodio 9</a>
+    </div>
+
+    <!-- Botón para ir a todos los episodios -->
+    <h2>Todos los episodios</h2>
+    <div class="button-container">
+        <a href="/st/episodios" class="button">Ver</a>
+    </div>
+
+    <div class="button-container">
+        <h2></h2>
+    </div>
+
+    <!-- Botón para agregar un nuevo episodio -->
+    <div class="button-container">
+        <a href="/st/episodios/crear" class="button">Agregar episodio</a>
+    </div>
+
+    <div class="button-container">
+        <h2></h2>
+    </div>
+
+    <!-- Botón para volver al menú -->
+    <div class="button-container">
+        <a href="/" class="button">Menú</a>
+    </div>
+    <footer>
+        <p>Creado por Daniel Orozco</p>
+        <p>Fecha de creación: 02/11/24</p>
+        <p>Utilización de Spring Boot para desarrollar aplicaciones web con un API basado en la serie Stranger Things.</p>
+    </footer>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Página Inicial - Stranger Things</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            text-align: center;
+            max-width: 900px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow-y: auto;
+            max-height: 93vh;
+        }
+        .item {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .item:last-child {
+            border-bottom: none;
+        }
+        .item img {
+            max-width: 600px;
+            max-height: 500px;
+            width: auto;
+            height: auto;
+            border-radius: 8px;
+        }
+        .button-container {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin: 0 auto;
+            padding: 10px 0;
+            width: auto;
+        }
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #ff0000;
+            background-color: #000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: block;
+        }
+        .button:hover {
+            background-color: #333;
+        }
+        header, footer {
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <header>
+        <h1>Stranger Things</h1>
+        <p>Temporadas registradas: 2</p>
+        <p>Episodios registrados: 17</p>
+    </header>
+
+    <div th:each="detalle : ${detallesList}" class="item">
+        <h2>Bienvenido a Stranger Things API</h2>
+        <p><span th:text="${detalle.descripcion}">Descripción</span></p>
+        <p><strong>Clasificación:</strong> <span th:text="${detalle.clasificacion}">Clasificación</span></p>
+        <p><strong>Calificación Promedio:</strong> <span th:text="${detalle.calificacionPromedio}">Calificación Promedio</span></p>
+        <p><strong>Episodio mejor calificado:</strong> <span th:text="${detalle.mejorEpisodio}">Episodio mejor calificado</span></p>
+        <img th:src="${detalle.poster}" alt="Imagen de la serie" />
+        <!-- Botones para ir a los servicios -->
+        <div class="button-container">
+            <a href="/st/actores" class="button">Actores</a>
+            <a href="/html/episodios.html" class="button">Episodios</a>
+            <a href="/st/personajes" class="button">Personajes</a>
+            <a href="/st/temporadas" class="button">Temporadas</a>
+            <a href="/st/protagonismos" class="button">Protagonistas</a>
+            <a href="/st/detalles" class="button">Detalles</a>
+        </div>
+    </div>
+    <footer>
+        <p>Creado por Daniel Orozco</p>
+        <p>Fecha de creación: 02/11/24</p>
+        <p>Utilización de Spring Boot para desarrollar aplicaciones web con un API basado en la serie Stranger Things.</p>
+    </footer>
+</div>
+
+</body>
+</html>
